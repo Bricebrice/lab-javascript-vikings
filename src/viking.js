@@ -30,12 +30,25 @@ class Viking extends Soldier {
     return `Odin Owns You All!`;
   }
 }
-const viking1 = new Viking("Brice", 100, 50);
-const damageMessage = viking1.receiveDamage(20);
-console.log(damageMessage);
+// const viking1 = new Viking("Brice", 100, 50);
+// const damageReceived = viking1.receiveDamage(20);
+// console.log(damageReceived);
 
 // Saxon
-class Saxon {}
+class Saxon extends Soldier {
+  attack(){
+    return this.strength;
+  };
+  receiveDamage(damage) {
+    this.health -= damage;
+    if (this.health > 0) {
+      return `A Saxon has received ${damage} points of damage`;
+    } else {
+      return `A Saxon has died in combat`;
+    }
+  }
+
+}
 
 // War
 class War {}
