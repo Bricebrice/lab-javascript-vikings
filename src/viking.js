@@ -31,9 +31,6 @@ class Viking extends Soldier {
     return `Odin Owns You All!`;
   }
 }
-// const viking1 = new Viking("Brice", 100, 50);
-// const damageReceived = viking1.receiveDamage(20);
-// console.log(damageReceived);
 
 // Saxon
 class Saxon extends Soldier {
@@ -57,10 +54,10 @@ class War {
     this.saxonArmy = [];
   }
   addViking(Viking) {
-    this.vikingArmy = [Viking];
+    this.vikingArmy.push(Viking);
   }
   addSaxon(Saxon) {
-    this.saxonArmy = [Saxon];
+    this.saxonArmy.push(Saxon);
   }
   vikingAttack() {
     // random index from the array
@@ -92,12 +89,13 @@ class War {
     }
     return result;
   }
-  showStatus() {}
+  showStatus() {
+    if (this.saxonArmy.length === 0) {
+      return `Vikings have won the war of the century!`;
+    } else if (this.vikingArmy.length === 0) {
+      return `Saxons have fought for their lives and survived another day...`;
+    } else {
+      return `Vikings and Saxons are still in the thick of battle.`;
+    }
+  }
 }
-
-// vikingAttack() method
-// should be a declared
-// should receive 0 arguments
-// should make Saxon receiveDamage() equal to the strength of a Viking
-// should remove dead saxons from the army
-// should return result of calling receiveDamage() of a Saxon with the strength of a Viking
